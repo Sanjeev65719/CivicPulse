@@ -81,7 +81,4 @@ page = st.navigation(
 )
 
 page.run()
-if __name__=="__main__":
-    app.run()
-app=app()
 
