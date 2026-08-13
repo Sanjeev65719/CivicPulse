@@ -1,0 +1,301 @@
+complaint_id,category,ward_name,latitude,longitude,complaint_date,resolved_date,status,description
+CMP-001,pothole,Jayanagar,12.937350712295169,77.58012603548244,2024-05-05 07:08:00,2024-05-11 03:13:00,Resolved,Huge crater in the middle of the street
+CMP-002,pothole,Koramangala,12.93761532807151,77.64994544784612,2024-02-17 06:14:00,2024-02-28 12:59:00,Resolved,Large pothole near main road causing traffic issues
+CMP-003,drainage,Whitefield,12.96628769937915,77.74638794564576,2024-04-22 14:37:00,2024-04-23 12:21:00,Resolved,Manhole cover broken by heavy truck
+CMP-004,streetlight,Rajajinagar,13.02188819223261,77.56451152093729,2024-04-20 10:06:00,2024-04-27 03:44:00,Resolved,Streetlight pole damaged after accident
+CMP-005,pothole,Malleshwaram,12.996057884210975,77.5724384006538,2024-10-01 03:59:00,2024-10-07 21:38:00,Resolved,Pothole needs urgent filling before monsoon
+CMP-006,streetlight,Electronic City,12.85,77.65311405369644,2024-04-08 22:04:00,2024-04-15 01:09:00,Resolved,Timer for streetlights not functioning
+CMP-007,pothole,Jayanagar,12.93352943407349,77.55350079633013,2024-05-22 14:40:00,,Open,Road surface broken completely
+CMP-008,garbage,BTM Layout,12.902026232512304,77.61866568706138,2024-12-25 21:41:00,2024-12-26 16:27:00,Resolved,Dry and wet waste mixed by collectors
+CMP-009,water_leakage,Whitefield,12.954607533194983,77.75,2024-05-18 20:44:00,2024-05-19 00:58:00,Resolved,Water meter leaking continuously
+CMP-010,streetlight,Rajajinagar,12.984579638867183,77.53181544447997,2024-05-17 02:13:00,,Open,Exposed wires near streetlight base
+CMP-011,streetlight,Malleshwaram,13.025084731533823,77.5609133554927,2024-12-01 15:25:00,,Open,Entire street is dark due to faulty lights
+CMP-012,garbage,Electronic City,12.85,77.6387287772068,2024-03-12 07:47:00,2024-03-14 22:14:00,Resolved,Dry and wet waste mixed by collectors
+CMP-013,water_leakage,Jayanagar,12.921734259132123,77.58386383884564,2024-04-22 04:32:00,2024-04-22 12:41:00,Resolved,Valve broken at the junction
+CMP-014,water_leakage,Koramangala,12.910635096338664,77.63273547027518,2024-02-02 12:24:00,2024-02-03 05:59:00,Resolved,Illegal water connection causing drop in pressure
+CMP-015,pothole,Whitefield,12.960790419651218,77.7455245937531,2024-12-15 17:48:00,2024-12-16 23:06:00,Resolved,Deep pothole on the service road
+CMP-016,water_leakage,Rajajinagar,12.989174400816559,77.58078417276764,2024-05-14 16:48:00,2024-05-16 10:07:00,Resolved,"Main pipe burst, water flowing on road"
+CMP-017,drainage,Malleshwaram,13.002897541628931,77.54843433606567,2024-04-11 04:23:00,2024-04-14 01:21:00,Resolved,Drainage pipes choked and backing up
+CMP-018,water_leakage,BTM Layout,12.857538173681547,77.64178734525044,2024-02-27 11:56:00,,Open,"Main pipe burst, water flowing on road"
+CMP-019,garbage,Jayanagar,12.933032953925071,77.5528049481418,2024-05-03 18:05:00,2024-05-03 21:53:00,Resolved,Overflowing garbage bin at junction
+CMP-020,garbage,Koramangala,12.907977209266523,77.63005291853804,2024-12-03 15:35:00,2024-12-04 12:02:00,Resolved,Garbage not collected for 3 days
+CMP-021,drainage,Whitefield,12.98087699869993,77.75,2024-12-31 09:25:00,,Open,Foul smell from blocked underground drain
+CMP-022,water_leakage,Rajajinagar,12.996465275764177,77.54848344456616,2024-08-19 03:15:00,2024-08-24 07:50:00,Resolved,Yellowish water coming from taps
+CMP-023,garbage,Malleshwaram,12.980922170144488,77.55350233687408,2024-02-06 22:40:00,2024-02-08 02:35:00,Resolved,Overflowing garbage bin at junction
+CMP-024,drainage,Electronic City,12.85,77.67595683339329,2024-05-22 21:31:00,2024-06-02 01:07:00,Resolved,Foul smell from blocked underground drain
+CMP-025,water_leakage,Jayanagar,12.935054274343527,77.55575439766956,2024-04-07 03:06:00,2024-04-08 06:35:00,Resolved,Water meter leaking continuously
+CMP-026,pothole,Koramangala,12.932761259540921,77.62132376579375,2024-02-01 12:46:00,2024-02-04 04:58:00,Resolved,Deep pothole on the service road
+CMP-027,garbage,Yelahanka,12.959646169995409,77.75,2024-04-03 08:29:00,2024-04-04 00:20:00,Resolved,Garbage burning causing heavy smoke
+CMP-028,drainage,Rajajinagar,13.01366499283744,77.56696920178673,2024-01-26 20:34:00,,Open,Blocked drain causing waterlogging
+CMP-029,garbage,Malleshwaram,12.99051173715166,77.55966181436223,2024-07-27 15:30:00,2024-07-27 17:40:00,Resolved,Garbage not collected for 3 days
+CMP-030,water_leakage,Electronic City,12.850168951471053,77.67473317690684,2024-08-20 09:27:00,2024-08-21 22:09:00,Resolved,Low pressure in water supply
+CMP-031,garbage,Jayanagar,12.922712386432321,77.57941511535005,2024-05-31 06:03:00,2024-06-01 06:23:00,Resolved,Foul smell from uncollected waste
+CMP-032,drainage,Yelahanka,12.911304975389909,77.6091569006388,2024-03-21 01:32:00,2024-03-31 10:36:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-033,garbage,Whitefield,12.981987887335912,77.75,2024-03-02 18:15:00,2024-03-04 00:41:00,Resolved,Garbage burning causing heavy smoke
+CMP-034,drainage,Rajajinagar,12.997119848176295,77.56805299346838,2024-06-10 08:13:00,2024-06-17 04:38:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-035,water_leakage,BTM Layout,13.008524540375715,77.55462320368093,2024-02-07 00:29:00,2024-02-07 07:33:00,Resolved,Valve broken at the junction
+CMP-036,drainage,Electronic City,12.850620934082626,77.68317054849699,2024-03-08 11:56:00,2024-03-15 13:06:00,Resolved,Rainwater drain clogged with plastic
+CMP-037,drainage,Jayanagar,12.929362609413351,77.60566965483721,2024-11-09 20:33:00,2024-11-11 12:32:00,Resolved,Rainwater drain clogged with plastic
+CMP-038,garbage,Koramangala,12.888603823438654,77.63942853756562,2024-02-29 03:47:00,2024-03-02 19:00:00,Resolved,Dry and wet waste mixed by collectors
+CMP-039,garbage,Whitefield,12.971105706023572,77.745414889743,2024-09-15 15:16:00,,Open,Dry and wet waste mixed by collectors
+CMP-040,pothole,Rajajinagar,12.999576411648032,77.52318646628099,2024-05-21 01:00:00,2024-06-02 16:10:00,Resolved,Road surface broken completely
+CMP-041,drainage,Malleshwaram,12.999804921682438,77.56965668857268,2024-10-14 00:07:00,2024-10-14 20:41:00,Resolved,Manhole cover broken by heavy truck
+CMP-042,drainage,BTM Layout,12.867368410671123,77.6523259467259,2024-03-16 13:08:00,2024-03-16 20:05:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-043,garbage,Jayanagar,12.917772595956603,77.57467364434623,2024-06-30 17:56:00,,Open,Trash dumped illegally on vacant plot
+CMP-044,garbage,Koramangala,12.94163103176553,77.63203126664489,2024-03-24 05:56:00,2024-03-26 04:46:00,Resolved,Foul smell from uncollected waste
+CMP-045,garbage,Whitefield,12.961853596943493,77.75,2024-03-22 22:06:00,2024-03-25 05:20:00,Resolved,Dry and wet waste mixed by collectors
+CMP-046,streetlight,Yelahanka,12.999656163240221,77.567529674858,2024-04-26 07:01:00,2024-04-27 19:56:00,Resolved,Streetlights remain ON during daytime
+CMP-047,streetlight,BTM Layout,12.99256920359184,77.55938506780103,2024-07-23 21:53:00,2024-07-24 13:49:00,Resolved,Trees blocking the streetlight illumination
+CMP-048,garbage,Electronic City,12.85,77.63814727577802,2024-05-15 01:06:00,2024-05-16 22:33:00,Resolved,Garbage truck spilling waste on road
+CMP-049,drainage,Jayanagar,12.934341804155968,77.5861158290827,2024-07-16 18:12:00,2024-07-16 19:45:00,Resolved,Blocked drain causing waterlogging
+CMP-050,drainage,Koramangala,12.927976701849635,77.62358119299937,2024-07-05 13:04:00,,Open,Foul smell from blocked underground drain
+CMP-051,drainage,Whitefield,12.948569438869242,77.74359032015852,2024-12-05 03:46:00,,Open,Sewage water entering residential compound
+CMP-052,water_leakage,Rajajinagar,12.9930592822521,77.54096584096168,2024-07-25 22:18:00,2024-07-31 12:42:00,Resolved,Valve broken at the junction
+CMP-053,garbage,Malleshwaram,13.000680714325009,77.57036076285222,2024-10-18 09:25:00,2024-10-20 04:38:00,Resolved,Garbage truck spilling waste on road
+CMP-054,drainage,Electronic City,12.873492788518158,77.66271866719248,2024-12-01 10:29:00,2024-12-04 04:59:00,Resolved,Drainage pipes choked and backing up
+CMP-055,garbage,Jayanagar,12.93376325586084,77.58108331126351,2024-05-25 16:42:00,2024-05-27 09:25:00,Resolved,Trash dumped illegally on vacant plot
+CMP-056,garbage,Koramangala,12.899118431770514,77.62670229186826,2024-01-13 01:15:00,,Open,Garbage not collected for 3 days
+CMP-057,pothole,Whitefield,12.970703453149115,77.75,2024-07-31 20:36:00,2024-08-06 04:01:00,Resolved,Pothole needs urgent filling before monsoon
+CMP-058,pothole,Rajajinagar,12.995314585528284,77.557523210135,2024-08-05 07:11:00,,Open,Deep pothole on the service road
+CMP-059,water_leakage,Malleshwaram,13.002579323454421,77.5467698294357,2024-10-12 07:58:00,,Open,"Main pipe burst, water flowing on road"
+CMP-060,water_leakage,Electronic City,12.862342342217726,77.6713789954903,2024-10-13 19:20:00,,Open,Yellowish water coming from taps
+CMP-061,drainage,Jayanagar,12.941765479205646,77.56855918817809,2024-08-06 17:28:00,,Open,Illegal sewage discharge into storm water drain
+CMP-062,water_leakage,Koramangala,12.94894191466404,77.60607223405812,2024-05-12 07:53:00,2024-05-13 18:24:00,Resolved,Sump overflowing onto the street
+CMP-063,streetlight,Whitefield,12.978602856407003,77.75,2024-02-09 22:18:00,2024-02-18 17:23:00,Resolved,LED bulb fused needs replacement
+CMP-064,water_leakage,HSR Layout,12.98334195512304,77.54450553405596,2024-12-27 06:04:00,2024-12-31 18:30:00,Resolved,Drinking water contaminated with sewage
+CMP-065,water_leakage,Yelahanka,13.004594770476315,77.55674786518826,2024-12-22 00:54:00,,Open,Illegal water connection causing drop in pressure
+CMP-066,water_leakage,Electronic City,12.85,77.6611284446221,2024-06-29 09:48:00,2024-06-30 13:22:00,Resolved,"Main pipe burst, water flowing on road"
+CMP-067,drainage,Jayanagar,12.913965444294108,77.58930388645953,2024-04-22 15:14:00,2024-04-24 17:35:00,Resolved,Drainage pipes choked and backing up
+CMP-068,water_leakage,Koramangala,12.914108636486493,77.65034901607527,2024-08-27 04:39:00,2024-08-28 19:15:00,Resolved,Drinking water contaminated with sewage
+CMP-069,pothole,Whitefield,12.958051200614955,77.74506907725691,2024-03-10 14:11:00,2024-03-12 21:40:00,Resolved,Road surface broken completely
+CMP-070,water_leakage,Rajajinagar,13.010402758260545,77.53453703525349,2024-08-03 08:53:00,2024-08-08 06:56:00,Resolved,Low pressure in water supply
+CMP-071,streetlight,Malleshwaram,13.006511899019062,77.58390714131424,2024-11-28 02:49:00,,Open,Entire street is dark due to faulty lights
+CMP-072,garbage,Indiranagar,12.85,77.66286950787799,2024-01-11 19:09:00,2024-01-11 23:45:00,Resolved,Foul smell from uncollected waste
+CMP-073,water_leakage,Jayanagar,12.933798241913726,77.59392734307666,2024-07-07 05:38:00,2024-07-07 14:27:00,Resolved,Low pressure in water supply
+CMP-074,streetlight,Koramangala,12.909345739336828,77.60729315080374,2024-10-23 00:59:00,2024-10-25 02:24:00,Resolved,Flickering streetlight causing disturbance
+CMP-075,garbage,Whitefield,12.977629123484252,77.75,2024-10-30 22:53:00,2024-11-01 19:47:00,Resolved,Trash dumped illegally on vacant plot
+CMP-076,pothole,Rajajinagar,13.00195739275519,77.55819672314246,2024-01-22 11:34:00,2024-01-27 22:15:00,Resolved,Pothole expanding due to heavy vehicle movement
+CMP-077,water_leakage,Malleshwaram,12.992899629176323,77.56778380545742,2024-02-24 13:23:00,2024-02-26 11:32:00,Resolved,Sump overflowing onto the street
+CMP-078,drainage,Electronic City,12.85,77.6493847287296,2024-11-11 17:49:00,2024-11-15 16:26:00,Resolved,Rainwater drain clogged with plastic
+CMP-079,garbage,Jayanagar,12.957886617667171,77.58930749381368,2024-05-22 14:15:00,2024-05-23 12:39:00,Resolved,Trash dumped illegally on vacant plot
+CMP-080,water_leakage,Koramangala,12.91003044754196,77.6369483041295,2024-04-03 15:13:00,2024-04-07 04:09:00,Resolved,Valve broken at the junction
+CMP-081,streetlight,Whitefield,12.95517977494659,77.75,2024-01-06 16:12:00,2024-01-09 07:47:00,Resolved,Trees blocking the streetlight illumination
+CMP-082,water_leakage,Rajajinagar,13.015578933685111,77.54068976522473,2024-08-17 00:05:00,2024-08-17 16:24:00,Resolved,Sump overflowing onto the street
+CMP-083,streetlight,Malleshwaram,13.017550641938664,77.57049171390405,2024-10-10 16:22:00,2024-10-12 11:44:00,Resolved,LED bulb fused needs replacement
+CMP-084,streetlight,Electronic City,12.857530902399917,77.6885518947398,2024-05-08 07:07:00,2024-05-17 01:55:00,Resolved,Streetlights remain ON during daytime
+CMP-085,garbage,Jayanagar,12.926219178259958,77.57089395753464,2024-09-04 08:46:00,2024-09-05 05:04:00,Resolved,Foul smell from uncollected waste
+CMP-086,garbage,Koramangala,12.914557283555617,77.61486284572551,2024-04-26 11:11:00,2024-04-26 16:28:00,Resolved,Dry and wet waste mixed by collectors
+CMP-087,drainage,Indiranagar,12.968643474358787,77.75,2024-12-23 04:40:00,,Open,Rainwater drain clogged with plastic
+CMP-088,pothole,Rajajinagar,13.00235036198995,77.56540774873554,2024-05-25 15:30:00,2024-06-02 18:46:00,Resolved,Pothole expanding due to heavy vehicle movement
+CMP-089,water_leakage,Malleshwaram,13.003295028378169,77.58610301115736,2024-02-03 12:31:00,2024-02-03 16:40:00,Resolved,Slow leakage from underground pipe
+CMP-090,pothole,BTM Layout,12.85,77.70090253749885,2024-03-01 17:48:00,2024-03-08 09:02:00,Resolved,Multiple potholes developing after rain
+CMP-091,water_leakage,Jayanagar,12.939285010216475,77.56934263665376,2024-08-14 09:55:00,2024-08-15 23:34:00,Resolved,Sump overflowing onto the street
+CMP-092,garbage,Indiranagar,12.911836612529083,77.63433708622864,2024-05-15 21:05:00,2024-05-17 02:15:00,Resolved,Foul smell from uncollected waste
+CMP-093,drainage,Yelahanka,12.966448058220111,77.75,2024-05-29 01:14:00,2024-06-06 22:18:00,Resolved,Drain cleaning debris left on roadside
+CMP-094,streetlight,Rajajinagar,13.005298564368603,77.55190756631015,2024-12-04 06:27:00,2024-12-08 22:25:00,Resolved,Timer for streetlights not functioning
+CMP-095,garbage,Malleshwaram,12.990398094228974,77.54157729162972,2024-01-31 05:50:00,2024-02-01 01:48:00,Resolved,Trash dumped illegally on vacant plot
+CMP-096,pothole,Electronic City,12.85,77.67294598191485,2024-12-18 09:44:00,2025-01-05 23:15:00,Resolved,Pothole needs urgent filling before monsoon
+CMP-097,drainage,Jayanagar,12.933111406161952,77.56351391831932,2024-08-09 23:20:00,2024-08-16 11:03:00,Resolved,Sewage overflowing onto the main road
+CMP-098,drainage,Koramangala,12.930497713887767,77.63287976069593,2024-01-11 21:52:00,2024-01-17 19:22:00,Resolved,Drainage pipes choked and backing up
+CMP-099,water_leakage,Whitefield,12.956542138456982,77.75,2024-04-02 18:27:00,2024-04-03 00:57:00,Resolved,Low pressure in water supply
+CMP-100,streetlight,Rajajinagar,12.99907313077669,77.53585544553253,2024-12-09 03:54:00,2024-12-11 20:12:00,Resolved,Dim lighting not enough for safety
+CMP-101,water_leakage,Malleshwaram,13.008466810405224,77.57271176789553,2024-01-19 14:05:00,2024-01-23 19:00:00,Resolved,Yellowish water coming from taps
+CMP-102,pothole,Electronic City,12.861445768647629,77.67590703078052,2024-08-24 13:03:00,2024-08-29 21:43:00,Resolved,Asphalt washed away leaving a deep hole
+CMP-103,pothole,Jayanagar,12.909234959480644,77.56813262440127,2024-05-16 17:08:00,,Open,Multiple potholes developing after rain
+CMP-104,water_leakage,Koramangala,12.93562552900813,77.63480678926368,2024-01-15 20:38:00,,Open,Slow leakage from underground pipe
+CMP-105,streetlight,Whitefield,12.97752571529459,77.75,2024-01-08 17:26:00,2024-01-09 08:55:00,Resolved,Trees blocking the streetlight illumination
+CMP-106,garbage,Rajajinagar,13.006763357660398,77.5700334846027,2024-05-29 16:45:00,2024-05-30 09:00:00,Resolved,Stray dogs scattering garbage on street
+CMP-107,garbage,Malleshwaram,13.017410026452398,77.5740708687696,2024-04-07 19:32:00,2024-04-09 00:49:00,Resolved,Garbage burning causing heavy smoke
+CMP-108,water_leakage,Electronic City,12.85,77.6714845383074,2024-09-16 08:52:00,2024-09-17 23:29:00,Resolved,Valve broken at the junction
+CMP-109,water_leakage,Jayanagar,12.918307621781937,77.5786477208989,2024-08-16 17:30:00,2024-08-18 04:54:00,Resolved,Drinking water contaminated with sewage
+CMP-110,streetlight,Koramangala,12.920619546782563,77.6283281120908,2024-12-23 07:36:00,2024-12-25 12:38:00,Resolved,Entire street is dark due to faulty lights
+CMP-111,water_leakage,Whitefield,13.004519878500101,77.72189102211112,2024-07-16 21:50:00,,Open,Water meter leaking continuously
+CMP-112,water_leakage,Rajajinagar,13.008493902855617,77.52880926193215,2024-03-05 16:37:00,2024-03-10 01:43:00,Resolved,"Main pipe burst, water flowing on road"
+CMP-113,water_leakage,Malleshwaram,12.996021022013158,77.58063425895452,2024-03-14 13:55:00,2024-03-19 03:45:00,Resolved,"Main pipe burst, water flowing on road"
+CMP-114,streetlight,Electronic City,12.85,77.64393382833106,2024-12-20 12:41:00,2024-12-29 06:05:00,Resolved,Timer for streetlights not functioning
+CMP-115,water_leakage,Jayanagar,12.9191704443611,77.59239396623403,2024-01-19 19:04:00,2024-01-20 14:18:00,Resolved,Yellowish water coming from taps
+CMP-116,water_leakage,Koramangala,12.916944500524242,77.63034687884372,2024-11-20 22:55:00,2024-11-24 14:52:00,Resolved,Slow leakage from underground pipe
+CMP-117,pothole,BTM Layout,12.970483577598557,77.74012599478591,2024-07-02 11:27:00,2024-07-08 13:10:00,Resolved,Huge crater in the middle of the street
+CMP-118,garbage,Rajajinagar,13.03035916133988,77.56250878533477,2024-02-10 19:55:00,2024-02-11 12:53:00,Resolved,Garbage not collected for 3 days
+CMP-119,garbage,Malleshwaram,12.972722861200136,77.56709681472154,2024-11-22 08:29:00,2024-11-24 15:26:00,Resolved,Stray dogs scattering garbage on street
+CMP-120,drainage,Electronic City,12.85,77.67288650002195,2024-02-07 14:22:00,,Open,"Open manhole, safety hazard"
+CMP-121,water_leakage,Jayanagar,12.918012188923509,77.58047895337799,2024-08-21 09:12:00,,Open,Low pressure in water supply
+CMP-122,pothole,Koramangala,12.935474809184706,77.64008632791256,2024-07-14 18:22:00,2024-07-17 22:23:00,Resolved,Multiple potholes developing after rain
+CMP-123,water_leakage,Whitefield,12.951795553894163,77.74488248146238,2024-01-05 18:55:00,2024-01-05 23:53:00,Resolved,Low pressure in water supply
+CMP-124,water_leakage,Rajajinagar,12.991075820332586,77.54320006151139,2024-04-27 19:51:00,2024-04-29 12:07:00,Resolved,Low pressure in water supply
+CMP-125,garbage,Malleshwaram,13.029581813604217,77.57037472566442,2024-11-17 20:02:00,2024-11-18 15:25:00,Resolved,Trash dumped illegally on vacant plot
+CMP-126,pothole,Electronic City,12.85,77.67386792920583,2024-06-16 23:26:00,2024-07-05 13:22:00,Resolved,Huge crater in the middle of the street
+CMP-127,drainage,Jayanagar,12.96173234295519,77.59768697890827,2024-05-19 05:16:00,,Open,Illegal sewage discharge into storm water drain
+CMP-128,streetlight,Koramangala,12.90510945051069,77.619836488907,2024-02-28 14:04:00,2024-03-01 17:58:00,Resolved,Dim lighting not enough for safety
+CMP-129,streetlight,Whitefield,12.988803667237798,77.73928495801572,2024-07-21 00:16:00,2024-07-22 10:53:00,Resolved,Flickering streetlight causing disturbance
+CMP-130,streetlight,Rajajinagar,13.004857291422194,77.56461951080144,2024-12-11 07:30:00,2024-12-14 07:50:00,Resolved,Flickering streetlight causing disturbance
+CMP-131,garbage,Malleshwaram,12.989196042926329,77.56340711965908,2024-11-21 14:58:00,2024-11-21 19:06:00,Resolved,Trash dumped illegally on vacant plot
+CMP-132,streetlight,Indiranagar,12.85,77.64473418537999,2024-02-29 03:15:00,,Open,LED bulb fused needs replacement
+CMP-133,streetlight,Yelahanka,12.926111477729103,77.56348325227053,2024-08-02 18:47:00,2024-08-03 08:40:00,Resolved,Trees blocking the streetlight illumination
+CMP-134,water_leakage,Koramangala,12.952386169558974,77.60564787933059,2024-01-17 22:23:00,2024-01-18 15:17:00,Resolved,Low pressure in water supply
+CMP-135,streetlight,Whitefield,12.963199332699544,77.75,2024-11-26 11:03:00,2024-11-30 19:57:00,Resolved,Trees blocking the streetlight illumination
+CMP-136,pothole,Rajajinagar,13.019819099335992,77.5314620677323,2024-11-24 20:38:00,,Open,Multiple potholes developing after rain
+CMP-137,garbage,BTM Layout,13.020547456282324,77.5644534959153,2024-10-16 06:04:00,,Open,Garbage not collected for 3 days
+CMP-138,drainage,Electronic City,12.85,77.66703155211395,2024-04-29 10:49:00,2024-04-29 12:06:00,Resolved,Foul smell from blocked underground drain
+CMP-139,garbage,Jayanagar,12.932885895433602,77.57319674684261,2024-10-03 08:51:00,2024-10-03 09:59:00,Resolved,Garbage not collected for 3 days
+CMP-140,drainage,HSR Layout,12.92894703127485,77.62132029604707,2024-01-09 05:16:00,2024-01-12 01:23:00,Resolved,Sewage water entering residential compound
+CMP-141,water_leakage,Whitefield,12.971502760178769,77.75,2024-07-04 16:37:00,2024-07-06 08:39:00,Resolved,Sump overflowing onto the street
+CMP-142,drainage,Rajajinagar,13.021990252242182,77.5344327675176,2024-08-22 20:01:00,2024-08-25 00:28:00,Resolved,Rainwater drain clogged with plastic
+CMP-143,water_leakage,Malleshwaram,13.035095500619844,77.53501868300717,2024-02-07 02:20:00,2024-02-10 14:59:00,Resolved,Sump overflowing onto the street
+CMP-144,drainage,Electronic City,12.85,77.66892475809726,2024-07-14 19:33:00,2024-07-17 03:39:00,Resolved,Sewage water entering residential compound
+CMP-145,pothole,Jayanagar,12.934114878016025,77.5728595072027,2024-04-20 13:28:00,,Open,Asphalt washed away leaving a deep hole
+CMP-146,water_leakage,Koramangala,12.92477816624464,77.61970498598012,2024-07-31 23:06:00,2024-08-04 08:29:00,Resolved,Water meter leaking continuously
+CMP-147,water_leakage,Whitefield,12.960959528645835,77.75,2024-02-16 02:05:00,2024-02-17 02:56:00,Resolved,Slow leakage from underground pipe
+CMP-148,drainage,Indiranagar,13.003555232289477,77.54260635607109,2024-10-14 10:42:00,2024-10-18 01:30:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-149,pothole,Malleshwaram,13.016593998131498,77.56890949281315,2024-11-03 09:22:00,2024-11-05 02:04:00,Resolved,Huge crater in the middle of the street
+CMP-150,pothole,Electronic City,12.857392931782584,77.66954443262885,2024-10-11 11:07:00,2024-10-16 02:01:00,Resolved,Pothole causing accidents for two-wheelers
+CMP-151,drainage,Jayanagar,12.91746507483617,77.57379728439705,2024-12-11 20:35:00,2024-12-15 13:52:00,Resolved,Drainage pipes choked and backing up
+CMP-152,streetlight,BTM Layout,12.939109404076849,77.6362555539815,2024-06-28 00:11:00,,Open,Dim lighting not enough for safety
+CMP-153,water_leakage,Whitefield,12.969486476090538,77.75,2024-03-13 23:40:00,,Open,Slow leakage from underground pipe
+CMP-154,water_leakage,HSR Layout,13.017364973436827,77.54412642916746,2024-08-20 10:10:00,2024-08-21 23:48:00,Resolved,Water meter leaking continuously
+CMP-155,garbage,Indiranagar,13.01130646071755,77.56126711021349,2024-11-12 01:43:00,2024-11-12 16:14:00,Resolved,Garbage not collected for 3 days
+CMP-156,water_leakage,Electronic City,12.85,77.6765816527798,2024-04-20 16:07:00,2024-04-26 07:50:00,Resolved,Low pressure in water supply
+CMP-157,drainage,Jayanagar,12.94228124523482,77.59440264454001,2024-01-24 07:25:00,,Open,Rainwater drain clogged with plastic
+CMP-158,streetlight,HSR Layout,12.947482182107315,77.62741505762449,2024-03-11 08:18:00,2024-03-18 23:29:00,Resolved,Entire street is dark due to faulty lights
+CMP-159,drainage,HSR Layout,12.980029294569423,77.7452459986511,2024-12-08 11:04:00,2024-12-10 19:05:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-160,pothole,Rajajinagar,13.003062495287327,77.55104785418449,2024-10-21 13:36:00,2024-10-24 16:43:00,Resolved,Pothole causing accidents for two-wheelers
+CMP-161,streetlight,Malleshwaram,13.004554939474891,77.57322735538156,2024-11-12 14:53:00,2024-11-14 23:47:00,Resolved,Streetlight pole damaged after accident
+CMP-162,drainage,Yelahanka,12.85,77.69148580913529,2024-09-25 02:25:00,,Open,Manhole cover broken by heavy truck
+CMP-163,garbage,Jayanagar,12.914809739277505,77.56398717080819,2024-03-27 02:32:00,2024-03-27 10:29:00,Resolved,Medical waste dumped near residential area
+CMP-164,streetlight,Koramangala,12.9452716631025,77.63897494040944,2024-04-30 03:09:00,2024-05-04 19:57:00,Resolved,Streetlight pole damaged after accident
+CMP-165,pothole,Whitefield,12.979161797255781,77.75,2024-11-17 15:29:00,2024-11-22 11:12:00,Resolved,Dangerous pothole near the intersection
+CMP-166,drainage,Rajajinagar,12.998016298407297,77.5395411844277,2024-06-14 20:20:00,2024-06-23 15:00:00,Resolved,Drainage pipes choked and backing up
+CMP-167,streetlight,Malleshwaram,13.004237068372905,77.55414257432732,2024-01-29 11:32:00,2024-01-29 16:35:00,Resolved,Timer for streetlights not functioning
+CMP-168,streetlight,Electronic City,12.859826796001267,77.65789413927747,2024-11-26 02:39:00,2024-11-29 02:29:00,Resolved,Flickering streetlight causing disturbance
+CMP-169,pothole,Jayanagar,12.917517542048111,77.5773792123752,2024-10-19 20:12:00,2024-10-21 11:15:00,Resolved,Pothole needs urgent filling before monsoon
+CMP-170,streetlight,Koramangala,12.934093971814134,77.61864413170794,2024-09-15 20:11:00,2024-09-18 05:44:00,Resolved,Flickering streetlight causing disturbance
+CMP-171,garbage,Whitefield,12.957466694066502,77.75,2024-07-09 09:24:00,2024-07-12 00:27:00,Resolved,Medical waste dumped near residential area
+CMP-172,streetlight,Rajajinagar,13.001874498566632,77.54539585236942,2024-06-17 03:35:00,2024-06-21 18:56:00,Resolved,Flickering streetlight causing disturbance
+CMP-173,streetlight,HSR Layout,12.996034425415726,77.56778074906036,2024-12-01 22:42:00,2024-12-02 10:01:00,Resolved,Streetlights remain ON during daytime
+CMP-174,streetlight,Electronic City,12.85,77.63898804338436,2024-12-09 22:53:00,,Open,Streetlight pole damaged after accident
+CMP-175,drainage,Jayanagar,12.919123336681213,77.57899829272432,2024-11-26 21:27:00,2024-12-04 05:38:00,Resolved,Blocked drain causing waterlogging
+CMP-176,streetlight,Koramangala,12.93256361348397,77.64923034325425,2024-04-08 07:08:00,2024-04-12 09:40:00,Resolved,LED bulb fused needs replacement
+CMP-177,drainage,Whitefield,12.98266489434803,77.74750092205055,2024-12-04 10:56:00,2024-12-12 12:05:00,Resolved,Sewage overflowing onto the main road
+CMP-178,water_leakage,HSR Layout,12.99791475688146,77.53796205953043,2024-07-29 11:43:00,2024-07-31 04:01:00,Resolved,"Main pipe burst, water flowing on road"
+CMP-179,water_leakage,Malleshwaram,13.002822302960114,77.5599701204162,2024-09-30 07:19:00,,Open,No water supply for two days
+CMP-180,garbage,Electronic City,12.850040778405072,77.64769153584672,2024-12-13 18:28:00,2024-12-15 20:00:00,Resolved,Medical waste dumped near residential area
+CMP-181,garbage,Jayanagar,12.937690197713618,77.60519108369503,2024-11-05 04:55:00,2024-11-05 17:30:00,Resolved,Foul smell from uncollected waste
+CMP-182,drainage,Koramangala,12.926268597773147,77.63312567583148,2024-05-25 02:48:00,2024-05-27 20:57:00,Resolved,Blocked drain causing waterlogging
+CMP-183,pothole,Whitefield,12.980152159875667,77.7438816929217,2024-08-18 11:59:00,2024-09-05 06:22:00,Resolved,Multiple potholes developing after rain
+CMP-184,pothole,Rajajinagar,13.001561387227158,77.55318888601172,2024-04-24 00:20:00,,Open,Pothole causing accidents for two-wheelers
+CMP-185,streetlight,Malleshwaram,13.004565141478233,77.55270485324218,2024-03-11 01:18:00,,Open,Streetlight pole damaged after accident
+CMP-186,garbage,Electronic City,12.85,77.66756997436867,2024-08-17 19:00:00,,Open,Stray dogs scattering garbage on street
+CMP-187,garbage,HSR Layout,12.951667154116926,77.59658906239127,2024-11-07 16:27:00,2024-11-09 12:34:00,Resolved,Commercial waste dumped in public bin
+CMP-188,drainage,Yelahanka,12.960197736862673,77.61558978655668,2024-02-02 03:53:00,,Open,Drain cleaning debris left on roadside
+CMP-189,pothole,Whitefield,12.982884809550809,77.75,2024-10-21 07:45:00,2024-10-27 22:07:00,Resolved,Asphalt washed away leaving a deep hole
+CMP-190,water_leakage,Rajajinagar,13.031047043998266,77.54087552571967,2024-12-06 21:05:00,2024-12-08 07:39:00,Resolved,Drinking water contaminated with sewage
+CMP-191,drainage,Malleshwaram,12.990504172367288,77.55530911031835,2024-01-11 12:55:00,2024-01-13 13:11:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-192,streetlight,Electronic City,12.85,77.65221367467478,2024-06-25 07:46:00,2024-07-01 21:54:00,Resolved,Flickering streetlight causing disturbance
+CMP-193,garbage,BTM Layout,12.918513010076694,77.58445590679715,2024-12-22 15:40:00,2024-12-25 14:29:00,Resolved,Stray dogs scattering garbage on street
+CMP-194,pothole,Koramangala,12.933026339636656,77.65524256258824,2024-04-13 01:50:00,2024-04-26 17:22:00,Resolved,Huge crater in the middle of the street
+CMP-195,drainage,Whitefield,12.98405635757279,77.74124644516506,2024-05-09 01:48:00,2024-05-13 15:43:00,Resolved,Drain cleaning debris left on roadside
+CMP-196,streetlight,Rajajinagar,12.984723779929775,77.56037878757259,2024-07-07 13:56:00,2024-07-09 16:17:00,Resolved,Flickering streetlight causing disturbance
+CMP-197,water_leakage,Malleshwaram,12.98329650189469,77.59177188148782,2024-07-07 16:17:00,,Open,Sump overflowing onto the street
+CMP-198,pothole,Electronic City,12.86289160181082,77.65306236521843,2024-11-04 05:34:00,2024-11-18 06:16:00,Resolved,Road surface broken completely
+CMP-199,water_leakage,Jayanagar,12.904202982063637,77.60250808561248,2024-08-06 05:44:00,2024-08-08 05:39:00,Resolved,Illegal water connection causing drop in pressure
+CMP-200,drainage,Koramangala,12.92618190232121,77.6456672446796,2024-05-20 20:50:00,,Open,Manhole cover broken by heavy truck
+CMP-201,streetlight,Yelahanka,12.945883585118084,77.74090937465569,2024-12-13 05:01:00,2024-12-15 14:03:00,Resolved,Trees blocking the streetlight illumination
+CMP-202,streetlight,HSR Layout,12.998278655495774,77.55370470890647,2024-07-15 18:02:00,2024-07-17 18:25:00,Resolved,Dim lighting not enough for safety
+CMP-203,pothole,Malleshwaram,12.99634901792781,77.57364274898522,2024-03-11 16:23:00,2024-03-14 08:30:00,Resolved,Pothole expanding due to heavy vehicle movement
+CMP-204,water_leakage,HSR Layout,12.85,77.65796430772468,2024-07-17 17:07:00,2024-07-22 03:20:00,Resolved,Yellowish water coming from taps
+CMP-205,streetlight,Jayanagar,12.931704434475678,77.58991658251088,2024-04-12 03:08:00,,Open,LED bulb fused needs replacement
+CMP-206,water_leakage,Koramangala,12.938574223171333,77.61023036862242,2024-12-15 10:42:00,2024-12-20 09:00:00,Resolved,Slow leakage from underground pipe
+CMP-207,garbage,Whitefield,12.946788287438965,77.75,2024-07-04 16:14:00,2024-07-06 01:29:00,Resolved,Garbage not collected for 3 days
+CMP-208,pothole,Rajajinagar,13.003184710179694,77.54177270195164,2024-10-10 18:23:00,2024-10-12 05:02:00,Resolved,Pothole causing accidents for two-wheelers
+CMP-209,pothole,Malleshwaram,13.026367279632838,77.5660351195144,2024-07-22 22:46:00,2024-07-27 08:38:00,Resolved,Huge crater in the middle of the street
+CMP-210,garbage,Electronic City,12.862889457760957,77.66111277722115,2024-11-24 02:28:00,2024-11-24 08:24:00,Resolved,Medical waste dumped near residential area
+CMP-211,drainage,Jayanagar,12.96081121887323,77.60853011263664,2024-04-03 04:27:00,2024-04-03 21:00:00,Resolved,Drainage pipes choked and backing up
+CMP-212,garbage,HSR Layout,12.924165537772813,77.64167356426431,2024-12-29 07:22:00,,Open,Medical waste dumped near residential area
+CMP-213,streetlight,Whitefield,12.979480639243777,77.75,2024-05-08 06:40:00,,Open,Flickering streetlight causing disturbance
+CMP-214,streetlight,Rajajinagar,12.983726148091298,77.56329077189997,2024-09-30 02:32:00,2024-09-30 22:42:00,Resolved,Timer for streetlights not functioning
+CMP-215,drainage,Malleshwaram,13.018976367302743,77.53791890770366,2024-10-15 01:52:00,,Open,Sewage water entering residential compound
+CMP-216,garbage,BTM Layout,12.85,77.6295115173336,2024-08-01 19:40:00,2024-08-02 13:58:00,Resolved,Garbage truck spilling waste on road
+CMP-217,streetlight,Jayanagar,12.925858897483332,77.59296313383695,2024-05-05 21:25:00,2024-05-09 13:35:00,Resolved,LED bulb fused needs replacement
+CMP-218,water_leakage,Koramangala,12.95043535578144,77.6282114217063,2024-04-14 10:38:00,2024-04-15 08:24:00,Resolved,Sump overflowing onto the street
+CMP-219,streetlight,Whitefield,12.99422923318357,77.72919847812678,2024-03-07 11:32:00,2024-03-15 11:39:00,Resolved,Exposed wires near streetlight base
+CMP-220,garbage,Rajajinagar,12.972649263409673,77.55216678451654,2024-02-19 01:18:00,,Open,Garbage not collected for 3 days
+CMP-221,water_leakage,Malleshwaram,13.00886098173409,77.56380957877859,2024-03-22 10:59:00,2024-03-25 08:30:00,Resolved,No water supply for two days
+CMP-222,water_leakage,Electronic City,12.85,77.6587631994073,2024-06-06 15:01:00,2024-06-07 21:16:00,Resolved,Sump overflowing onto the street
+CMP-223,streetlight,Jayanagar,12.910332957492427,77.59224508823245,2024-01-26 09:31:00,2024-01-28 22:49:00,Resolved,Streetlight not working for a week
+CMP-224,pothole,Koramangala,12.933398973691451,77.6130018032051,2024-03-09 08:46:00,2024-03-09 21:11:00,Resolved,Road surface broken completely
+CMP-225,streetlight,HSR Layout,12.962091996239948,77.73401179717166,2024-05-27 02:24:00,2024-05-28 15:16:00,Resolved,Trees blocking the streetlight illumination
+CMP-226,drainage,Rajajinagar,12.997259813540904,77.56732713480751,2024-03-06 03:25:00,2024-03-09 03:48:00,Resolved,Blocked drain causing waterlogging
+CMP-227,garbage,Malleshwaram,12.988314109304966,77.57186069773277,2024-09-17 12:32:00,2024-09-20 10:53:00,Resolved,Garbage truck spilling waste on road
+CMP-228,drainage,Electronic City,12.85,77.64820690751607,2024-03-17 19:57:00,2024-03-28 09:17:00,Resolved,Drain cleaning debris left on roadside
+CMP-229,drainage,BTM Layout,12.928294544600682,77.56667136516371,2024-09-16 16:34:00,2024-09-19 06:26:00,Resolved,Sewage water entering residential compound
+CMP-230,pothole,BTM Layout,12.919595260419792,77.60913183161117,2024-10-25 09:50:00,,Open,Road surface broken completely
+CMP-231,pothole,Whitefield,12.999270876993744,77.75,2024-08-30 08:41:00,,Open,Pothole expanding due to heavy vehicle movement
+CMP-232,drainage,Rajajinagar,12.987704117380112,77.55620969866101,2024-01-27 18:30:00,2024-01-31 03:19:00,Resolved,Foul smell from blocked underground drain
+CMP-233,garbage,Malleshwaram,13.001415079254638,77.560985456007,2024-01-17 18:44:00,2024-01-19 16:10:00,Resolved,Foul smell from uncollected waste
+CMP-234,water_leakage,HSR Layout,12.854412500500652,77.67146261565071,2024-11-09 15:55:00,,Open,Yellowish water coming from taps
+CMP-235,garbage,Jayanagar,12.921942482785843,77.57356272639034,2024-04-16 17:20:00,,Open,Commercial waste dumped in public bin
+CMP-236,water_leakage,Koramangala,12.923774224542724,77.59257118252897,2024-03-29 14:58:00,2024-03-31 11:47:00,Resolved,Valve broken at the junction
+CMP-237,streetlight,Whitefield,12.947072134067021,77.75,2024-09-04 06:15:00,2024-09-10 12:04:00,Resolved,Timer for streetlights not functioning
+CMP-238,garbage,Rajajinagar,13.02287451570252,77.54926445940666,2024-06-11 15:22:00,2024-06-12 15:39:00,Resolved,Stray dogs scattering garbage on street
+CMP-239,drainage,Malleshwaram,13.011748354445837,77.56896875231816,2024-07-13 12:52:00,2024-07-14 08:10:00,Resolved,Illegal sewage discharge into storm water drain
+CMP-240,streetlight,Indiranagar,12.89138321212683,77.67689362367152,2024-12-01 08:47:00,2024-12-10 03:04:00,Resolved,LED bulb fused needs replacement
+CMP-241,streetlight,Jayanagar,12.927981236127788,77.567866893391,2024-02-25 19:47:00,2024-03-05 12:01:00,Resolved,Streetlight pole damaged after accident
+CMP-242,pothole,Koramangala,12.903803305196135,77.63015195453801,2024-07-30 10:45:00,2024-07-31 22:45:00,Resolved,Deep pothole on the service road
+CMP-243,garbage,Whitefield,12.958454738820734,77.72856619435603,2024-11-30 15:30:00,2024-12-01 01:50:00,Resolved,Garbage burning causing heavy smoke
+CMP-244,pothole,Rajajinagar,12.988501406736363,77.53677677994578,2024-11-29 18:14:00,2024-11-30 05:12:00,Resolved,Deep pothole on the service road
+CMP-245,water_leakage,Malleshwaram,13.028407124526089,77.57752459635425,2024-01-19 12:50:00,2024-01-20 08:46:00,Resolved,Drinking water contaminated with sewage
+CMP-246,drainage,BTM Layout,12.85,77.68229916208335,2024-02-24 10:18:00,2024-02-27 06:49:00,Resolved,Drainage pipes choked and backing up
+CMP-247,garbage,Jayanagar,12.931060524614715,77.56928073698008,2024-08-27 08:12:00,,Open,Commercial waste dumped in public bin
+CMP-248,water_leakage,Koramangala,12.950746861159043,77.63518365065526,2024-04-05 00:47:00,2024-04-10 16:35:00,Resolved,Low pressure in water supply
+CMP-249,water_leakage,Yelahanka,12.954241307685102,77.74704491982874,2024-06-16 02:25:00,2024-06-18 20:55:00,Resolved,Yellowish water coming from taps
+CMP-250,garbage,Rajajinagar,12.98506572619923,77.53225800403553,2024-05-13 12:15:00,2024-05-15 10:34:00,Resolved,Overflowing garbage bin at junction
+CMP-251,drainage,Malleshwaram,13.016992663212974,77.59294124960705,2024-05-13 20:23:00,2024-05-19 03:52:00,Resolved,Sewage overflowing onto the main road
+CMP-252,water_leakage,Electronic City,12.85,77.66854453855036,2024-12-26 09:44:00,2024-12-27 05:07:00,Resolved,Yellowish water coming from taps
+CMP-253,garbage,Jayanagar,12.920140361463172,77.57489311924353,2024-09-01 04:29:00,2024-09-01 19:13:00,Resolved,Garbage not collected for 3 days
+CMP-254,water_leakage,Koramangala,12.919014091136416,77.6141401384548,2024-12-06 06:48:00,2024-12-06 13:21:00,Resolved,Yellowish water coming from taps
+CMP-255,streetlight,Whitefield,12.970527824419172,77.73743574825383,2024-10-15 03:03:00,,Open,Flickering streetlight causing disturbance
+CMP-256,garbage,Rajajinagar,13.002256852386699,77.55224642835826,2024-10-01 04:10:00,2024-10-01 08:53:00,Resolved,Garbage truck spilling waste on road
+CMP-257,drainage,Malleshwaram,12.999515779297004,77.55068654506938,2024-02-16 16:28:00,,Open,Drain cleaning debris left on roadside
+CMP-258,drainage,Electronic City,12.85,77.67143086838739,2024-08-21 18:03:00,2024-08-23 10:49:00,Resolved,Manhole cover broken by heavy truck
+CMP-259,pothole,BTM Layout,12.937413757814365,77.56753667132803,2024-10-23 02:02:00,2024-10-28 21:05:00,Resolved,Multiple potholes developing after rain
+CMP-260,pothole,Koramangala,12.929389984581437,77.63837080685057,2024-01-17 09:26:00,2024-02-07 03:12:00,Resolved,Pothole needs urgent filling before monsoon
+CMP-261,water_leakage,Whitefield,12.944758920783178,77.75,2024-07-14 14:55:00,,Open,Valve broken at the junction
+CMP-262,pothole,Rajajinagar,12.988260643615813,77.56155898002889,2024-03-09 20:55:00,2024-03-28 09:20:00,Resolved,Asphalt washed away leaving a deep hole
+CMP-263,garbage,Malleshwaram,12.991651112651862,77.53722676849003,2024-01-12 09:29:00,2024-01-13 03:53:00,Resolved,Overflowing garbage bin at junction
+CMP-264,garbage,Electronic City,12.85,77.66082127419992,2024-06-26 04:17:00,2024-06-26 08:19:00,Resolved,Stray dogs scattering garbage on street
+CMP-265,water_leakage,Jayanagar,12.933795837525823,77.56863525062343,2024-01-09 07:13:00,2024-01-10 12:51:00,Resolved,Illegal water connection causing drop in pressure
+CMP-266,pothole,Koramangala,12.93747888688166,77.60217719906596,2024-01-23 12:28:00,2024-01-31 17:36:00,Resolved,Multiple potholes developing after rain
+CMP-267,streetlight,Whitefield,12.96880880302029,77.73173475700357,2024-10-21 10:36:00,2024-10-23 04:51:00,Resolved,Entire street is dark due to faulty lights
+CMP-268,garbage,Rajajinagar,12.988422458382969,77.55371098006974,2024-04-23 13:19:00,2024-04-24 09:15:00,Resolved,Commercial waste dumped in public bin
+CMP-269,garbage,Malleshwaram,12.99019379952074,77.55853166683656,2024-10-11 15:03:00,,Open,Garbage burning causing heavy smoke
+CMP-270,water_leakage,Electronic City,12.860294392138217,77.65144662195715,2024-06-12 22:26:00,2024-06-15 23:14:00,Resolved,Yellowish water coming from taps
+CMP-271,garbage,Jayanagar,12.942435381680976,77.56525439718014,2024-06-02 22:09:00,,Open,Foul smell from uncollected waste
+CMP-272,drainage,Koramangala,12.935847062668728,77.64872352930986,2024-08-01 17:33:00,2024-08-07 22:54:00,Resolved,Manhole cover broken by heavy truck
+CMP-273,water_leakage,Whitefield,12.93272533249809,77.73794657116794,2024-02-17 17:46:00,,Open,Valve broken at the junction
+CMP-274,drainage,Yelahanka,13.006856081907708,77.54995431920935,2024-01-21 02:12:00,,Open,Drainage pipes choked and backing up
+CMP-275,drainage,Malleshwaram,13.008667188100569,77.55524022219926,2024-09-02 06:55:00,,Open,Foul smell from blocked underground drain
+CMP-276,pothole,Electronic City,12.85,77.65776484146912,2024-04-07 23:07:00,2024-04-10 14:51:00,Resolved,Multiple potholes developing after rain
+CMP-277,garbage,Jayanagar,12.947416730924896,77.58601631264952,2024-05-02 17:20:00,2024-05-03 12:01:00,Resolved,Garbage burning causing heavy smoke
+CMP-278,streetlight,Koramangala,12.932964039931127,77.62092184550816,2024-09-19 15:29:00,2024-09-22 05:17:00,Resolved,Dim lighting not enough for safety
+CMP-279,garbage,Whitefield,12.962485906638912,77.74341162718271,2024-06-09 13:02:00,2024-06-10 23:03:00,Resolved,Medical waste dumped near residential area
+CMP-280,drainage,Rajajinagar,13.004116782135675,77.5466852327877,2024-08-01 09:09:00,2024-08-11 12:02:00,Resolved,Drainage pipes choked and backing up
+CMP-281,drainage,Malleshwaram,13.007446622853447,77.59543101197968,2024-05-11 15:46:00,2024-05-12 14:32:00,Resolved,Sewage water entering residential compound
+CMP-282,garbage,Electronic City,12.858266870551475,77.65520964701749,2024-10-06 15:11:00,,Open,Garbage not collected for 3 days
+CMP-283,pothole,Jayanagar,12.947918208832458,77.57607886940468,2024-01-18 02:52:00,2024-01-22 13:00:00,Resolved,Asphalt washed away leaving a deep hole
+CMP-284,garbage,Koramangala,12.897328131972332,77.61197870533624,2024-12-28 04:00:00,2024-12-28 06:39:00,Resolved,Trash dumped illegally on vacant plot
+CMP-285,drainage,Whitefield,12.941738121184612,77.74462729773937,2024-12-03 15:01:00,2024-12-03 17:02:00,Resolved,Drain cleaning debris left on roadside
+CMP-286,streetlight,Rajajinagar,12.998476275687844,77.57814655968413,2024-05-26 00:32:00,,Open,Trees blocking the streetlight illumination
+CMP-287,garbage,Malleshwaram,13.008003910606462,77.56101349206787,2024-02-19 16:09:00,2024-02-20 02:01:00,Resolved,Trash dumped illegally on vacant plot
+CMP-288,water_leakage,Electronic City,12.857641083717752,77.62693297036488,2024-07-10 12:29:00,2024-07-11 03:48:00,Resolved,Slow leakage from underground pipe
+CMP-289,pothole,Jayanagar,12.933434218371628,77.5937629779083,2024-02-17 12:24:00,2024-02-24 08:24:00,Resolved,Large pothole near main road causing traffic issues
+CMP-290,pothole,Koramangala,12.905721206313302,77.6442563106481,2024-08-10 20:50:00,2024-08-11 22:47:00,Resolved,Pothole needs urgent filling before monsoon
+CMP-291,pothole,Whitefield,12.974877446112416,77.74367068129149,2024-04-18 22:56:00,2024-04-27 14:39:00,Resolved,Multiple potholes developing after rain
+CMP-292,drainage,Rajajinagar,13.007691727991595,77.58706039286706,2024-12-02 01:11:00,,Open,Drainage pipes choked and backing up
+CMP-293,garbage,Malleshwaram,13.005827993825877,77.56802330879451,2024-03-14 22:52:00,2024-03-16 10:28:00,Resolved,Garbage truck spilling waste on road
+CMP-294,water_leakage,Electronic City,12.85,77.64735233445803,2024-06-18 12:48:00,2024-06-20 10:34:00,Resolved,Yellowish water coming from taps
+CMP-295,pothole,BTM Layout,12.942355037248163,77.56935874261137,2024-08-11 07:53:00,2024-08-17 22:31:00,Resolved,Deep pothole on the service road
+CMP-296,streetlight,Koramangala,12.92897349355829,77.61993513829852,2024-11-20 08:50:00,,Open,Streetlight not working for a week
+CMP-297,streetlight,Whitefield,12.976984697386195,77.75,2024-07-11 13:11:00,2024-07-12 01:00:00,Resolved,Trees blocking the streetlight illumination
+CMP-298,garbage,Rajajinagar,13.013763099163869,77.54534975401718,2024-02-12 08:09:00,2024-02-12 13:56:00,Resolved,Trash dumped illegally on vacant plot
+CMP-299,streetlight,Malleshwaram,12.999051875970599,77.54961854426327,2024-02-16 00:19:00,2024-02-16 14:27:00,Resolved,Flickering streetlight causing disturbance
+CMP-300,water_leakage,Yelahanka,12.85,77.66575950739568,2024-10-11 16:26:00,2024-10-16 15:31:00,Resolved,Yellowish water coming from taps

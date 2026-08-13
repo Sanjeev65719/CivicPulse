@@ -1,0 +1,817 @@
+"""
+CivicPulse — Municipal Grievance & Civic Infrastructure Analytics Agent
+
+Main Streamlit application with 8 tabs for end-to-end civic complaint analytics:
+ingestion, cleaning, storage, hotspot detection, SLA prediction, visualization,
+profiling, and settings.
+"""
+
+import streamlit as st
+import pandas as pd
+import os
+import sys
+
+# ── Ensure project root is on the path ──────────────────────────────────────
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from modules.data_ingestion import DataIngestion
+from modules.data_cleaning import DataCleaning
+from modules.database_manager import DatabaseManager
+from modules.ai_services import AIServices
+from utils.helpers import format_bytes, validate_file_size, get_sla_threshold
+
+
+# ── Page configuration ──────────────────────────────────────────────────────
+st.set_page_config(
+    page_title="CivicPulse — Civic Analytics",
+    page_icon="🏛️",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+
+# ── Custom CSS for premium look ─────────────────────────────────────────────
+st.markdown("""
+<style>
+    html, body, [class*="css"] {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .main-header {
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        padding: 1.8rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    .main-header h1 {
+        color: #FAFAFA;
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+    }
+    .main-header p {
+        color: #B0B0D0;
+        font-size: 0.95rem;
+        margin: 0.4rem 0 0;
+    }
+
+    .metric-card {
+        background: linear-gradient(145deg, #1E2130 0%, #252840 100%);
+        padding: 1.2rem 1rem;
+        border-radius: 10px;
+        border: 1px solid #2D3250;
+        text-align: center;
+    }
+    .metric-card h3 {
+        color: #B0B0D0;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 0 0 0.3rem;
+    }
+    .metric-card p {
+        color: #FAFAFA;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .step-tracker {
+        padding: 0.5rem 0;
+    }
+    .step-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        margin-bottom: 0.3rem;
+        font-size: 0.85rem;
+        color: #B0B0D0;
+        transition: all 0.2s;
+    }
+    .step-item.active {
+        background: rgba(0, 180, 216, 0.15);
+        color: #00B4D8;
+        font-weight: 600;
+    }
+    .step-item.completed {
+        color: #2ECC71;
+    }
+
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 4px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 8px 8px 0 0;
+        padding: 8px 16px;
+    }
+    .stTabs [aria-selected="true"] {
+        color: #00B4D8;
+        border-bottom-color: #00B4D8;
+    }
+    .stButton > button, .stDownloadButton > button {
+        border-radius: 8px;
+        font-weight: 600;
+        min-height: 2.5rem;
+    }
+    [data-testid="stSidebar"] {
+        border-right: 1px solid #2D3250;
+    }
+
+    div[data-testid="stMetric"] {
+        background: linear-gradient(145deg, #1E2130 0%, #252840 100%);
+        padding: 0.8rem 1rem;
+        border-radius: 10px;
+        border: 1px solid #2D3250;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
+# ── Cached Resource Singletons ───────────────────────────────────────────────
+@st.cache_resource
+def get_db_manager(db_path: str):
+    """Cached database manager singleton."""
+    return DatabaseManager(db_path)
+
+@st.cache_resource
+def get_ai_services():
+    """Cached AI services singleton."""
+    return AIServices()
+
+
+# ── Session state initialisation ────────────────────────────────────────────
+def init_session_state():
+    """Initialise all session-state keys to safe defaults."""
+    db_path = os.path.join(PROJECT_ROOT, "civicpulse.db")
+    defaults = {
+        "data": None,
+        "cleaned_data": None,
+        "db_manager": get_db_manager(db_path),
+        "ai_services": get_ai_services(),
+        "hotspot_detector": None,
+        "sla_predictor": None,
+        "hotspot_results": None,
+        "prediction_results": None,
+        "current_step": 0,
+    }
+    for key, val in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = val
+
+init_session_state()
+
+
+# ── Sidebar ─────────────────────────────────────────────────────────────────
+def render_sidebar():
+    """Render the sidebar with workflow tracker and quick stats."""
+    with st.sidebar:
+        st.markdown("## 🏛️ CivicPulse")
+        st.caption("Municipal Grievance Analytics")
+        st.divider()
+
+        # Workflow steps
+        steps = [
+            ("📥", "Data Ingestion"),
+            ("🧹", "Data Cleaning"),
+            ("🗄️", "Storage & Queries"),
+            ("📍", "Hotspot Detection"),
+            ("⚠️", "SLA Prediction"),
+            ("📊", "Visualization"),
+            ("📋", "Profiling Report"),
+            ("⚙️", "Settings"),
+        ]
+
+        st.markdown("### Workflow Progress")
+        for i, (icon, label) in enumerate(steps):
+            if i < st.session_state.current_step:
+                st.markdown(f"✅ ~~{icon} {label}~~")
+            elif i == st.session_state.current_step:
+                st.markdown(f"▶️ **{icon} {label}**")
+            else:
+                st.markdown(f"⬜ {icon} {label}")
+
+        st.divider()
+
+        # Quick stats
+        if st.session_state.data is not None:
+            df = st.session_state.data
+            st.markdown("### 📈 Data Snapshot")
+            col1, col2 = st.columns(2)
+            col1.metric("Rows", f"{len(df):,}")
+            col2.metric("Cols", len(df.columns))
+
+            if "category" in df.columns:
+                st.metric("Categories", df["category"].nunique())
+            if "status" in df.columns:
+                open_count = (df["status"] == "Open").sum()
+                st.metric("Open Complaints", f"{open_count:,}")
+
+render_sidebar()
+
+
+# ── Header ──────────────────────────────────────────────────────────────────
+st.markdown("""
+<div class="main-header">
+    <h1>🏛️ CivicPulse</h1>
+    <p>Municipal Grievance &amp; Civic Infrastructure Analytics Agent</p>
+</div>
+""", unsafe_allow_html=True)
+
+
+# ── Tab definitions ─────────────────────────────────────────────────────────
+tab_ingestion, tab_cleaning, tab_storage, tab_hotspot, tab_sla, \
+    tab_viz, tab_profiling, tab_settings = st.tabs([
+        "📥 Data Ingestion",
+        "🧹 Data Cleaning",
+        "🗄️ Storage & Queries",
+        "📍 Hotspot Detection",
+        "⚠️ SLA Prediction",
+        "📊 Visualization",
+        "📋 Profiling Report",
+        "⚙️ Settings",
+    ])
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 1 — DATA INGESTION
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_ingestion:
+    st.header("📥 Data Ingestion")
+    st.markdown("Upload a CSV or XLSX file, load the built-in sample dataset, or pull data from an API endpoint.")
+
+    ingestion = DataIngestion()
+
+    src_choice = st.radio(
+        "Select data source",
+        ["📁 Upload File", "📊 Sample Dataset", "🌐 API Endpoint"],
+        horizontal=True,
+        key="ingestion_source",
+    )
+
+    if src_choice == "📁 Upload File":
+        uploaded = st.file_uploader(
+            "Choose a CSV or XLSX file",
+            type=["csv", "xlsx", "xls"],
+            key="file_upload",
+        )
+        if uploaded:
+            if not validate_file_size(uploaded, max_size_mb=50):
+                st.error(f"File exceeds 50 MB limit ({format_bytes(uploaded.size)}).")
+            else:
+                try:
+                    df = ingestion.load_file(uploaded)
+                    st.session_state.data = df
+                    st.session_state.current_step = max(st.session_state.current_step, 1)
+                    st.success(f"✅ Loaded **{len(df):,}** rows × **{len(df.columns)}** columns from `{uploaded.name}`.")
+                except Exception as exc:
+                    st.error(f"Failed to read file: {exc}")
+
+    elif src_choice == "📊 Sample Dataset":
+        if st.button("Load Sample Data", type="primary", key="load_sample"):
+            with st.spinner("Loading sample civic complaints…"):
+                try:
+                    df = ingestion.load_sample_data()
+                    st.session_state.data = df
+                    st.session_state.current_step = max(st.session_state.current_step, 1)
+                    st.success(f"✅ Loaded sample dataset — **{len(df):,}** rows × **{len(df.columns)}** columns.")
+                except Exception as exc:
+                    st.error(f"Failed to load sample data: {exc}")
+
+    else:  # API
+        api_url = st.text_input("API URL", placeholder="https://api.example.com/complaints")
+        col_a, col_b = st.columns(2)
+        api_key = col_a.text_input("API Key (optional)", type="password")
+        headers_json = col_b.text_input("Extra Headers (JSON, optional)")
+        if st.button("Fetch Data", type="primary", key="fetch_api"):
+            if not api_url:
+                st.warning("Please provide a URL.")
+            else:
+                with st.spinner("Fetching…"):
+                    try:
+                        df = ingestion.load_from_api(api_url, api_key or None, headers_json or None)
+                        st.session_state.data = df
+                        st.session_state.current_step = max(st.session_state.current_step, 1)
+                        st.success(f"✅ Fetched **{len(df):,}** rows from API.")
+                    except Exception as exc:
+                        st.error(f"API error: {exc}")
+
+    # Preview
+    if st.session_state.data is not None:
+        st.subheader("Data Preview")
+        st.dataframe(st.session_state.data.head(20), use_container_width=True, height=400)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 2 — DATA CLEANING
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_cleaning:
+    st.header("🧹 Data Cleaning")
+
+    if st.session_state.data is None:
+        st.info("⬅️ Load data in the **Data Ingestion** tab first.")
+    else:
+        cleaner = DataCleaning()
+        df = st.session_state.data.copy()
+
+        # Quality assessment
+        st.subheader("Data Quality Report")
+        quality = cleaner.assess_data_quality(df)
+
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Total Rows", f"{quality['total_rows']:,}")
+        col2.metric("Total Columns", quality["total_columns"])
+        col3.metric("Duplicates", quality["duplicate_count"])
+        col4.metric("Invalid Coords", quality["invalid_coordinates_count"])
+
+        # Missing values
+        if quality["missing_percentage"]:
+            with st.expander("📉 Missing Values (% per column)", expanded=False):
+                missing_df = pd.DataFrame.from_dict(
+                    quality["missing_percentage"], orient="index", columns=["Missing %"]
+                ).sort_values("Missing %", ascending=False)
+                st.dataframe(missing_df, use_container_width=True)
+
+        # Data types
+        with st.expander("🔤 Data Types", expanded=False):
+            dtype_df = pd.DataFrame.from_dict(
+                quality["dtype_summary"], orient="index", columns=["Type"]
+            )
+            st.dataframe(dtype_df, use_container_width=True)
+
+        st.divider()
+
+        # Cleaning actions
+        st.subheader("Cleaning Actions")
+
+        col_a, col_b = st.columns(2)
+
+        with col_a:
+            st.markdown("**Column Standardisation**")
+            if st.button("Standardise Column Names", key="std_cols"):
+                df = cleaner.standardize_column_names(df)
+                st.session_state.data = df
+                st.success("Column names standardised ✔️")
+
+            st.markdown("**Remove Duplicates**")
+            if st.button("Remove Duplicates", key="rm_dup"):
+                before = len(df)
+                df = cleaner.remove_duplicates(df)
+                st.session_state.data = df
+                st.success(f"Removed {before - len(df)} duplicate(s) ✔️")
+
+        with col_b:
+            st.markdown("**Handle Missing Values**")
+            strategy = st.selectbox(
+                "Strategy",
+                ["drop", "fill_mean", "fill_mode"],
+                key="missing_strategy",
+            )
+            if st.button("Apply Missing-Value Strategy", key="handle_missing"):
+                before = len(df)
+                df = cleaner.handle_missing_values(df, strategy=strategy)
+                st.session_state.data = df
+                st.success(f"Applied '{strategy}' — {before - len(df)} rows affected ✔️")
+
+        st.divider()
+
+        # Coordinate validation
+        st.subheader("🗺️ Coordinate Validation")
+        if st.button("Validate Coordinates (Bengaluru bbox)", key="validate_coords"):
+            df = cleaner.validate_coordinates(df)
+            st.session_state.data = df
+            invalid = (~df["coordinates_valid"]).sum() if "coordinates_valid" in df.columns else 0
+            st.success(f"Validation complete — **{invalid}** rows outside bounding box ✔️")
+
+        # Date parsing
+        st.subheader("📅 Date Parsing")
+        if st.button("Parse Dates & Compute Resolution Time", key="parse_dates"):
+            df = cleaner.parse_dates(df)
+            st.session_state.data = df
+            has_rt = "resolution_time_hours" in df.columns
+            st.success(
+                f"Dates parsed ✔️"
+                + (f" — `resolution_time_hours` column created." if has_rt else "")
+            )
+
+        st.divider()
+
+        # Finalize
+        if st.button("✅ Finalize Cleaned Data", type="primary", key="finalize_clean"):
+            st.session_state.cleaned_data = st.session_state.data.copy()
+            st.session_state.current_step = max(st.session_state.current_step, 2)
+            st.success("Cleaned data saved to session ✔️")
+            st.dataframe(st.session_state.cleaned_data.head(10), use_container_width=True)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 3 — STORAGE & QUERIES
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_storage:
+    st.header("🗄️ Storage & Queries")
+
+    working_df = st.session_state.cleaned_data if st.session_state.cleaned_data is not None else st.session_state.data
+
+    if working_df is None:
+        st.info("⬅️ Load and clean data first.")
+    else:
+        # Init DB manager
+        if st.session_state.db_manager is None:
+            db_path = os.path.join(PROJECT_ROOT, "civicpulse.db")
+            st.session_state.db_manager = DatabaseManager(db_path)
+
+        db = st.session_state.db_manager
+
+        # Save
+        st.subheader("💾 Save to Database")
+        table_name = st.text_input("Table name", value="complaints", key="table_name")
+        if st.button("Save DataFrame to SQLite", type="primary", key="save_db"):
+            with st.spinner("Saving…"):
+                db.save_dataframe(working_df, table_name)
+                st.session_state.current_step = max(st.session_state.current_step, 3)
+            st.success(f"Saved **{len(working_df):,}** rows to `{table_name}` ✔️")
+
+        # DB info
+        with st.expander("ℹ️ Database Info"):
+            info = db.get_database_info()
+            if info["table_names"]:
+                for t in info["table_names"]:
+                    tbl_info = info.get(t, {})
+                    st.markdown(f"**{t}** — {tbl_info.get('row_count', '?')} rows, columns: `{', '.join(tbl_info.get('column_names', []))}`")
+            else:
+                st.caption("No tables yet.")
+
+        st.divider()
+
+        # NLP Query
+        st.subheader("💬 Natural-Language Query")
+        if st.session_state.ai_services is None:
+            st.session_state.ai_services = AIServices()
+
+        ai = st.session_state.ai_services
+
+        nl_question = st.text_input(
+            "Ask a question about the data",
+            placeholder="e.g. Which ward has the most complaints?",
+            key="nl_query",
+        )
+        if st.button("Ask", key="ask_nl"):
+            if nl_question:
+                schema_info = db.get_database_info()
+                sql = ai.natural_language_to_sql(nl_question, schema_info)
+                st.code(sql, language="sql")
+                result = db.execute_query(sql)
+                if not result.empty:
+                    st.dataframe(result, use_container_width=True)
+                else:
+                    st.warning("Query returned no results.")
+
+        st.divider()
+
+        # Raw SQL
+        st.subheader("🔧 Raw SQL Query")
+        raw_sql = st.text_area(
+            "Enter SQL",
+            placeholder="SELECT * FROM complaints LIMIT 10",
+            key="raw_sql",
+        )
+        if st.button("Execute", key="exec_sql"):
+            if raw_sql:
+                result = db.execute_query(raw_sql)
+                if not result.empty:
+                    st.dataframe(result, use_container_width=True)
+                else:
+                    st.warning("Query returned no results or an error occurred.")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 4 — HOTSPOT DETECTION
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_hotspot:
+    st.header("📍 Hotspot Detection")
+
+    working_df = st.session_state.cleaned_data if st.session_state.cleaned_data is not None else st.session_state.data
+
+    if working_df is None:
+        st.info("⬅️ Load and clean data first.")
+    else:
+        st.markdown("Configure DBSCAN parameters to detect geographic complaint clusters.")
+
+        col1, col2 = st.columns(2)
+        eps_km = col1.slider("Radius (km)", 0.1, 5.0, 0.5, 0.1, key="eps_km")
+        min_samples = col2.slider("Min samples per cluster", 2, 20, 5, 1, key="min_samples")
+
+        if st.button("🔍 Run Hotspot Detection", type="primary", key="run_hotspot"):
+            with st.spinner("Running DBSCAN clustering…"):
+                # Load analytics dependencies only when this action is requested.
+                from modules.hotspot_detection import HotspotDetector
+                detector = HotspotDetector(eps_km=eps_km, min_samples=min_samples)
+                df_with_clusters = detector.detect_hotspots(working_df)
+                summary = detector.summarize_hotspots(df_with_clusters)
+                ranked = detector.rank_hotspots_by_severity(summary)
+
+                st.session_state.hotspot_detector = detector
+                st.session_state.hotspot_results = {
+                    "clustered_df": df_with_clusters,
+                    "summary": summary,
+                    "ranked": ranked,
+                }
+                st.session_state.current_step = max(st.session_state.current_step, 4)
+
+            n_clusters = df_with_clusters["cluster_id"].nunique()
+            noise = (df_with_clusters["cluster_id"] == -1).sum()
+            real_clusters = n_clusters - (1 if -1 in df_with_clusters["cluster_id"].values else 0)
+
+            st.success(f"Detected **{real_clusters}** hotspot cluster(s) — {noise} noise points.")
+
+        # Display results
+        if st.session_state.hotspot_results is not None:
+            results = st.session_state.hotspot_results
+
+            st.subheader("🗺️ Hotspot Map")
+            from modules.visualization import Visualization
+            viz = Visualization()
+            fig = viz.create_hotspot_map(results["clustered_df"])
+            st.plotly_chart(fig, use_container_width=True)
+
+            st.subheader("📊 Hotspot Summary (Ranked by Severity)")
+            if not results["ranked"].empty:
+                st.dataframe(
+                    results["ranked"].style.format({
+                        "centroid_lat": "{:.4f}",
+                        "centroid_lon": "{:.4f}",
+                        "avg_resolution_time": "{:.1f}h",
+                        "severity_score": "{:.3f}",
+                    }),
+                    use_container_width=True,
+                )
+            else:
+                st.info("No clusters detected with the current parameters.")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 5 — SLA PREDICTION
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_sla:
+    st.header("⚠️ SLA Breach Prediction")
+
+    working_df = st.session_state.cleaned_data if st.session_state.cleaned_data is not None else st.session_state.data
+
+    if working_df is None:
+        st.info("⬅️ Load and clean data first.")
+    else:
+        st.markdown("Train a Random Forest model to predict which open complaints may breach their SLA deadlines.")
+
+        # Show SLA thresholds reference
+        with st.expander("📋 SLA Thresholds Reference"):
+            sla_data = {cat: f"{hrs}h ({hrs // 24}d)" for cat, hrs in [
+                ("pothole", 168), ("streetlight", 72), ("garbage", 24),
+                ("water_leakage", 48), ("drainage", 96),
+            ]}
+            st.table(pd.DataFrame.from_dict(sla_data, orient="index", columns=["Threshold"]))
+
+        if st.button("🚀 Train SLA Prediction Model", type="primary", key="train_sla"):
+            with st.spinner("Training Random Forest classifier…"):
+                # scikit-learn is imported on demand to keep initial page load lean.
+                from modules.sla_prediction import SLAPredictor
+                predictor = SLAPredictor()
+                try:
+                    metrics = predictor.train(working_df)
+                    st.session_state.sla_predictor = predictor
+                    st.session_state.current_step = max(st.session_state.current_step, 5)
+
+                    st.success("Model trained successfully! ✔️")
+
+                    # Metrics display
+                    col1, col2, col3, col4 = st.columns(4)
+                    col1.metric("Accuracy", f"{metrics['accuracy']:.2%}")
+                    col2.metric("Precision", f"{metrics['precision']:.2%}")
+                    col3.metric("Recall", f"{metrics['recall']:.2%}")
+                    col4.metric("F1 Score", f"{metrics['f1']:.2%}")
+
+                    st.caption(f"Train set: {metrics['train_size']} | Test set: {metrics['test_size']}")
+
+                    # Feature importances
+                    with st.expander("🔑 Top Feature Importances"):
+                        imp_df = pd.DataFrame.from_dict(
+                            metrics["feature_importances"], orient="index", columns=["Importance"]
+                        ).sort_values("Importance", ascending=False)
+                        st.bar_chart(imp_df, height=300)
+
+                except Exception as exc:
+                    st.error(f"Training failed: {exc}")
+
+        st.divider()
+
+        # Predict
+        st.subheader("🔮 Predict Breach Risk for Open Complaints")
+        if st.session_state.sla_predictor is not None and st.session_state.sla_predictor.is_trained:
+            if st.button("Predict", type="primary", key="predict_sla"):
+                predictor = st.session_state.sla_predictor
+                try:
+                    predictions = predictor.predict_breach_risk(working_df)
+                    if predictions.empty:
+                        st.info("No open complaints to predict.")
+                    else:
+                        # Add priority actions
+                        predictions["priority_action"] = predictions.apply(
+                            predictor.generate_priority_action, axis=1
+                        )
+                        st.session_state.prediction_results = predictions
+
+                        # Summary
+                        high = (predictions["breach_flag"] == "High Risk").sum()
+                        med = (predictions["breach_flag"] == "Medium Risk").sum()
+                        low = (predictions["breach_flag"] == "Low Risk").sum()
+
+                        col1, col2, col3 = st.columns(3)
+                        col1.metric("🔴 High Risk", high)
+                        col2.metric("🟡 Medium Risk", med)
+                        col3.metric("🟢 Low Risk", low)
+
+                        st.dataframe(
+                            predictions[[
+                                "complaint_id", "category", "ward_name",
+                                "breach_probability", "breach_flag", "priority_action"
+                            ]].style.format({"breach_probability": "{:.2%}"}),
+                            use_container_width=True,
+                        )
+                except Exception as exc:
+                    st.error(f"Prediction error: {exc}")
+        else:
+            st.caption("Train the model first to make predictions.")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 6 — VISUALIZATION
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_viz:
+    st.header("📊 Visualization Dashboard")
+
+    working_df = st.session_state.cleaned_data if st.session_state.cleaned_data is not None else st.session_state.data
+
+    if working_df is None:
+        st.info("⬅️ Load and clean data first.")
+    else:
+        from modules.visualization import Visualization
+        viz = Visualization()
+
+        # Category breakdown
+        st.subheader("🗂️ Category Breakdown")
+        fig_cat = viz.create_category_breakdown_chart(working_df)
+        st.plotly_chart(fig_cat, use_container_width=True)
+
+        st.divider()
+
+        # Ward comparison
+        st.subheader("🏘️ Ward Comparison")
+        if "resolution_time_hours" in working_df.columns:
+            fig_ward = viz.create_ward_comparison_chart(working_df)
+            st.plotly_chart(fig_ward, use_container_width=True)
+        else:
+            st.info("Parse dates first to compute resolution times for ward comparison.")
+
+        st.divider()
+
+        # Resolution time trend
+        st.subheader("📈 Resolution Time Trend")
+        if "resolution_time_hours" in working_df.columns:
+            fig_trend = viz.create_resolution_time_trend(working_df)
+            st.plotly_chart(fig_trend, use_container_width=True)
+        else:
+            st.info("Parse dates first to see resolution time trends.")
+
+        st.divider()
+
+        # SLA breach distribution
+        st.subheader("⏰ SLA Breach Distribution")
+        if "sla_breached" in working_df.columns:
+            fig_sla = viz.create_sla_breach_distribution(working_df)
+            st.plotly_chart(fig_sla, use_container_width=True)
+        else:
+            # Try to compute on the fly
+            if "resolution_time_hours" in working_df.columns and "category" in working_df.columns:
+                temp = working_df.copy()
+                temp["sla_breached"] = temp.apply(
+                    lambda r: (
+                        1 if pd.notna(r.get("resolution_time_hours"))
+                        and r["resolution_time_hours"] > get_sla_threshold(r.get("category", ""))
+                        else 0
+                    ) if r.get("status") == "Resolved" else None,
+                    axis=1,
+                )
+                temp = temp.dropna(subset=["sla_breached"])
+                temp["sla_breached"] = temp["sla_breached"].astype(int)
+                fig_sla = viz.create_sla_breach_distribution(temp)
+                st.plotly_chart(fig_sla, use_container_width=True)
+            else:
+                st.info("Parse dates and train the SLA model first to see breach distributions.")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 7 — PROFILING REPORT
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_profiling:
+    st.header("📋 Profiling Report")
+
+    working_df = st.session_state.cleaned_data if st.session_state.cleaned_data is not None else st.session_state.data
+
+    if working_df is None:
+        st.info("⬅️ Load data first.")
+    else:
+        st.markdown("Generate a comprehensive data profile report.")
+
+        if st.button("📋 Generate Profile Report", type="primary", key="gen_profile"):
+            # ydata-profiling is optional and expensive; defer it until requested.
+            from modules.profiling import DataProfiler
+            profiler = DataProfiler()
+            output_path = os.path.join(PROJECT_ROOT, "report.html")
+            with st.spinner("Generating profiling report… (this may take a minute)"):
+                try:
+                    path = profiler.generate_profile_report(working_df, output_path)
+                    st.success(f"Report generated at `{path}` ✔️")
+
+                    # Show inline
+                    with open(path, "r", encoding="utf-8") as f:
+                        html = f.read()
+                    st.components.v1.html(html, height=800, scrolling=True)
+
+                    # Download
+                    with open(path, "rb") as f:
+                        st.download_button(
+                            "⬇️ Download Report",
+                            data=f.read(),
+                            file_name="civicpulse_profile_report.html",
+                            mime="text/html",
+                        )
+                except Exception as exc:
+                    st.error(f"Profiling failed: {exc}")
+
+        st.session_state.current_step = max(st.session_state.current_step, 7)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAB 8 — SETTINGS
+# ─────────────────────────────────────────────────────────────────────────────
+with tab_settings:
+    st.header("⚙️ Settings")
+
+    # AI status
+    st.subheader("🤖 AI Service Status")
+    if st.session_state.ai_services is None:
+        st.session_state.ai_services = AIServices()
+
+    ai = st.session_state.ai_services
+    token_info = ai.validate_token()
+    if token_info["valid"]:
+        st.success(f"HF API Token: {token_info['message']}")
+    else:
+        st.warning(f"HF API Token: {token_info['message']}")
+    st.caption("Set `HF_API_KEY` environment variable to enable AI-powered NLP queries.")
+
+    st.divider()
+
+    # Model info
+    st.subheader("📊 Model Info")
+    if st.session_state.sla_predictor and st.session_state.sla_predictor.is_trained:
+        st.info("SLA Prediction model is **trained** and ready.")
+    else:
+        st.caption("SLA Prediction model has not been trained yet.")
+
+    if st.session_state.hotspot_detector:
+        st.info("Hotspot detector is **configured**.")
+    else:
+        st.caption("Hotspot detector has not been configured yet.")
+
+    st.divider()
+
+    # Clear session
+    st.subheader("🗑️ Clear Session Data")
+    st.warning("This will reset all data, models, and results.")
+    if st.button("Clear All Session Data", key="clear_session"):
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
+        init_session_state()
+        st.success("Session cleared ✔️")
+        st.rerun()
+
+    # About
+    st.divider()
+    st.subheader("ℹ️ About")
+    st.markdown("""
+    **CivicPulse** — Municipal Grievance & Civic Infrastructure Analytics Agent
+
+    | Component | Technology |
+    |---|---|
+    | UI | Streamlit |
+    | Data | pandas, numpy |
+    | Storage | SQLAlchemy + SQLite |
+    | ML | scikit-learn (DBSCAN, Random Forest) |
+    | Charts | Plotly |
+    | Profiling | ydata-profiling (with fallback) |
+    | NLP | Hugging Face Inference API (optional) |
+    """)
