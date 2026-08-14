@@ -82,3 +82,6 @@ page = st.navigation(
 
 page.run()
 
+if __name__=="__main__":
+    app.run()  # type: ignore
+app=app  # type: ignore
